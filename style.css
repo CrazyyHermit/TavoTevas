@@ -1,0 +1,22 @@
+@keyframes tevas {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    background-color: black;
+    margin: 0;
+}
+.tevas {
+    background: url(images/tavotevas.webp);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 93vh;
+    background-position: center;
+    animation-name: tevas;
+    animation-duration: 5s;
+}
