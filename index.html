@@ -4,7 +4,17 @@
     <meta charset="utf-8" />
     <title>You should run</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script>
+        function doTheFunny(){
+            document.body.innerHTML = '';
+            var audio = new Audio('sounds/cave1.mp3');
+            var body = document.getElementById('body');
+            var image = document.createElement('p');
+            image.className = "tevas";
+            body.appendChild(image)
+            audio.play()
+        };
+    </script>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 <body id="body">
