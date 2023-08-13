@@ -1,6 +1,9 @@
-var images = ["cat.png", "tavotevas.webp"];
+var images = ["cat.png", "tavotevas.webp", "sad.jpg"];
+var sounds = ["cave1.mp3", "fart.mp3"]
 var keyInput = "";
 var imageSelect = 1
+var soundSelect = 0
+var wordsCheck;
 
 var AudioPlaying = false;
 
@@ -10,8 +13,19 @@ function AudioStopped(){;
 
 function doTheFunny(){
     if (!AudioPlaying) {
-        if (keyInput == "CAT") {
-            imageSelect = 0;
+        switch (keyInput){
+            case "CAT":
+                imageSelect = 0;
+                soundSelect = 0;
+                break;
+            case "SAD":
+                imageSelect = 2;
+                soundSelect = 1;
+                break;
+            default:
+                imageSelect = 1;
+                soundSelect = 0;
+                break;
         };
         document.body.innerHTML = '';
         var body = document.getElementById('body');
@@ -20,48 +34,60 @@ function doTheFunny(){
         image.style.backgroundSize = "contain";
         image.id = "tevas";
 
-        body.appendChild(image);
-
-        var audio = new Audio('sounds/cave1.mp3');
+        var audio = new Audio('sounds/'+sounds[soundSelect]);
         audio.onended = AudioStopped;
         audio.id = "audio";
-        document.getElementById("tevas").style.animationDuration =  "3s";
-        AudioPlaying = true;
-        audio.play()
+        audio.preload = "metadata";
+
+        audio.onloadedmetadata = function() {
+            image.style.animationDuration =  audio.duration + "s";
+            body.appendChild(image);
+            console.log(audio.duration)
+            AudioPlaying = true;
+            audio.play()
         };
+    };
 };
 
 window.addEventListener("keypress", easteregg);
 
+var LeftOverWords;
+
 function easteregg(key){
     var input = key.code.replace("Key", "");
-    console.log(key.code.replace("Key", ""));
-    switch (keyInput){
-        case "":
-            if (input == "C"){
-                keyInput += "C";
-            }else {
-                keyInput = "";
-            };
-            break;
-        case "C":
-            if (input == "A"){
-                keyInput += "A";
-            } else{
-                keyInput = "";
-            };
-            break;
-        case "CA":
-            if (input == "T"){
-                keyInput += "T";
-            }
-            else {
-                keyInput = "";
-            };
-            break;
-        default:
-            keyInput = "";
-            console.log("Cat mode failed")
-    }
-    console.log(keyInput)
-}
+    var wordFound = false;
+    console.log("input = "+input)
+
+    var words = ["CAT", "SAD"];
+    if (keyInput.length == 0){
+        wordsCheck = words;
+    };
+    console.log(wordsCheck);
+
+    LeftOverWords = wordsCheck
+    keyInputBeforeCheck = keyInput
+
+    for (let word in wordsCheck) {
+        console.log(`Checking `+wordsCheck[word])
+
+        if (wordsCheck[word][keyInputBeforeCheck.length] == input){
+            console.log(`added `+input);
+            keyInput += input;
+            wordFound = true;
+            continue;
+        }
+        else {
+            console.log(wordsCheck[word]+` is not the word, removing.`)
+            delete LeftOverWords[word];
+            continue;
+        };
+    };
+
+
+    if (!wordFound){
+        keyInput = "";
+        console.log("Word not found, clearing word cache.")
+        console.log(wordsCheck);
+    };
+    wordsCheck = LeftOverWords;
+};
