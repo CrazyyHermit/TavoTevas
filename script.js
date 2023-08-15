@@ -1,6 +1,6 @@
-var images = ["cat.png", "tavotevas.webp", "sad.jpg", "cursedObama.gif"];
-var sounds = ["cave1.mp3", "fart.mp3", "knock.mp3"]
-const words = ["CAT", "SAD", "OBAMA"];
+var images = ["cat.png", "tavotevas.webp", "sad.jpg", "cursedObama.gif", "maciute.jpg"];
+var sounds = ["cave1.mp3", "fart.mp3", "knock.mp3", "sus.mp3"]
+const words = ["CAT", "SAD", "OBAMA", "MACIUTE"];
 var keyInput = "";
 var imageSelect = 1
 var soundSelect = 0
@@ -27,6 +27,10 @@ function doTheFunny(){ // on click command
             case "OBAMA":
                 imageSelect = 3;
                 soundSelect = 2;
+                break;
+            case "MACIUTE":
+                imageSelect = 4;
+                soundSelect = 3;
                 break;
             default:
                 imageSelect = 1;
