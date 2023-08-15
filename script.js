@@ -8,10 +8,10 @@ var wordsCheck;
 
 var AudioPlaying = false;
 
-function AudioStopped(close){; //Doesn't allow user to press on the screen until the audio finishes playing
-    AudioPlaying = false;
-    //document.body.innerHTML = '';
-};
+// function AudioStopped(close){; //Doesn't allow user to press on the screen until the audio finishes playing
+//     AudioPlaying = false;
+//     //document.body.innerHTML = '';
+// };
 
 function doTheFunny(){ // on click command
     if (!AudioPlaying) {
@@ -31,7 +31,7 @@ function doTheFunny(){ // on click command
             case "MACIUTE":
                 imageSelect = 4;
                 soundSelect = 3;
-                break;
+                break
             default:
                 imageSelect = 1;
                 soundSelect = 0;
@@ -45,7 +45,7 @@ function doTheFunny(){ // on click command
         image.id = "tevas";
 
         var audio = new Audio('sounds/'+sounds[soundSelect]);
-        audio.onended = AudioStopped;
+        // audio.onended = AudioStopped;
         audio.id = "audio";
         audio.preload = "metadata";
 
@@ -53,7 +53,7 @@ function doTheFunny(){ // on click command
             image.style.animationDuration =  audio.duration + "s";
             body.appendChild(image);
             console.log(audio.duration)
-            AudioPlaying = true;
+            // AudioPlaying = true;
             audio.play()
         };
     };
