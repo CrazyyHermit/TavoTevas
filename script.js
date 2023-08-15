@@ -1,5 +1,6 @@
 var images = ["cat.png", "tavotevas.webp", "sad.jpg", "cursedObama.gif"];
 var sounds = ["cave1.mp3", "fart.mp3", "knock.mp3"]
+const words = ["CAT", "SAD", "OBAMA"];
 var keyInput = "";
 var imageSelect = 1
 var soundSelect = 0
@@ -9,7 +10,7 @@ var AudioPlaying = false;
 
 function AudioStopped(close){; //Doesn't allow user to press on the screen until the audio finishes playing
     AudioPlaying = false;
-    document.body.innerHTML = '';
+    //document.body.innerHTML = '';
 };
 
 function doTheFunny(){ // on click command
@@ -63,7 +64,6 @@ function easteregg(key){ //Checks for key input
     var letterFound = false;
     console.log("input = "+input);
 
-    const words = ["CAT", "SAD", "OBAMA"];
     if (keyInput.length == 0){
         wordsCheck = words;
     };
@@ -96,8 +96,5 @@ function easteregg(key){ //Checks for key input
     };
     //removing words that have been detected to not have checked letters
     wordsCheck = wordsCheck.filter((el)=> !removedWords.includes(el)); 
-
     console.log('Words in the list: '+wordsCheck.length)
 };
-
-

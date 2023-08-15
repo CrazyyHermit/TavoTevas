@@ -1,6 +1,7 @@
 body {
     background-color: black;
     margin: 0;
+    overflow: hidden;
 }
 
 
@@ -15,7 +16,8 @@ body {
     background: url(images/tavotevas.webp);
     background-repeat: no-repeat;
     background-size: contain;
-    height: 93vh;
+    height: 100vh;
     background-position: center;
     animation-name: fade;
+    margin: 0%;
 }
