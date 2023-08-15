@@ -29,7 +29,8 @@ function doTheFunny(){ // on click command
                 imageSelect = 3;
                 soundSelect = 2;
                 break;
-            case "MACIUTE" || "GRANDMA":
+            case "MACIUTE":
+            case "GRANDMA":
                 imageSelect = 4;
                 soundSelect = 3;
                 break
