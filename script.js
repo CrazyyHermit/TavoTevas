@@ -14,6 +14,7 @@ var AudioPlaying = false;
 // };
 
 function doTheFunny(){ // on click command
+    // document.documentElement.requestFullscreen();
     if (!AudioPlaying) {
         switch (keyInput){
             case "CAT":

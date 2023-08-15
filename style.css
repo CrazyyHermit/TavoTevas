@@ -1,7 +1,13 @@
+@font-face {
+    font-family: Determination;
+    src: url(Determination.ttf);
+}
+
 body {
     background-color: black;
     margin: 0;
     overflow: hidden;
+    height: 100v;
 }
 
 
@@ -20,4 +26,19 @@ body {
     background-position: center;
     animation-name: fade;
     margin: 0%;
+}
+
+#tip {
+    color: white;
+    opacity: 50%;
+    font-family: Determination;
+    margin: 0%;
+    font-size: 150%;
+    user-select: none;
+}
+div#tip{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
