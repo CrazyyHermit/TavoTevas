@@ -1,0 +1,44 @@
+@font-face {
+    font-family: Determination;
+    src: url(Determination.ttf);
+}
+
+body {
+    background-color: black;
+    margin: 0;
+    overflow: hidden;
+    height: 100v;
+}
+
+
+@keyframes fade{
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+#tevas {
+    opacity: 0;
+    background: url(images/tavotevas.webp);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100vh;
+    background-position: center;
+    animation-name: fade;
+    margin: 0%;
+}
+
+#tip {
+    color: white;
+    opacity: 50%;
+    font-family: Determination;
+    margin: 0%;
+    font-size: 150%;
+    user-select: none;
+}
+div#tip{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
